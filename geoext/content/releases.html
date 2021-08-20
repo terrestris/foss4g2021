@@ -1,0 +1,64 @@
+<section data-markdown>
+    <script type="text/template">
+        ## GeoExt v3.2 Features
+    </script>
+</section>
+<section data-markdown data-background="images/geocoder.png" data-background-size="70%" data-background-opacity="0.2">
+    <script type="text/template">
+        ### [GeoCoder](https://rawgit.com/geoext/geoext3/master/examples/geocoder/geocoder-combo.html)
+
+        + Can be easily configured to work with any geocoding API
+        + Zooms to the location on the map and adds a bounding box feature
+        + [#498 Add a generic GeocoderCombo component](https://github.com/geoext/geoext3/pull/498)
+
+    </script>
+</section>
+<section data-markdown data-background="images/feature_selection.png"  data-background-size="90%" data-background-opacity="0.3">
+    <script type="text/template">
+        ### Map Selection
+
+        + [Example](https://rawgit.com/geoext/geoext3/master/examples/features/grid-map-selection.html)
+        + Extends the `Ext.selection.RowModel`
+        + Synchronizes selection between the map and a grid
+        + [#522 Add GeoExt.selection.FeatureModel](https://github.com/geoext/geoext3/pull/522)
+
+    </script>
+</section>
+<section data-markdown>
+    <script type="text/template">
+        ### Layer Tree Context Menu
+
+        + Abstract class to easily allow functions to be applied to a layer
+        + E.g. refresh / redraw a WMS / WFS, add labels, open metadata etc.
+        + [#501 Add ContextMenu plugin for columns in a LayerTree](https://github.com/geoext/geoext3/pull/501)
+
+        <img class="plain" src="images/layertree_context_menu.png" />
+
+    </script>
+</section>
+<section data-markdown>
+    <script type="text/template">
+        ### Grid Filter
+
+        + [Example](https://rawgit.com/geoext/geoext3/master/examples/features/grid-filter.html)
+        + Use grid filters to filter both WMS and WFS layers
+        + Filters are OGC compliant to work with any OGC compatible server
+        + [#493 Introducing the OGCFilter util](https://github.com/geoext/geoext3/pull/493)
+    </script>
+</section>
+<section>
+    <video controls src="videos/grid_filtering.webm" type="video/webm" style="height: 100%; width: 100%;" />
+</section>
+<section data-markdown>
+    <script type="text/template">
+        ### Grid Paging
+
+        + [Example](https://rawgit.com/geoext/geoext3/master/examples/features/grid-paging.html)
+        + Page through WFS features using an ExtJS grid
+        + [#517 WFS FeatureStore and WFS PagingToolbar](https://github.com/geoext/geoext3/pull/517)
+
+    </script>
+</section>
+<section>
+    <video controls src="videos/grid_paging.webm" type="video/webm" style="height: 100%; width: 100%;" />
+</section>
