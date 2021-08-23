@@ -19,16 +19,27 @@
         link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
         document.getElementsByTagName('head')[0].appendChild(link);
     </script>
+    <style>
+        #about-speakers ul {
+            margin-bottom: 0.75em;
+        }
+        #about-speakers ul li {
+            font-size: smaller;
+        }
+        #about-speakers ul li code {
+            font-size: smaller;
+        }
+    </style>
 </head>
 <body>
     <div class="reveal">
         <div class="slides">
             <section data-external="content/introduction.html"></section>
             <section data-external="content/news.html"></section>
-            <section data-external="content/releases.html"></section>
-            <section data-external="content/ecosystem.html"></section>
+            <section data-external="content/latest-release.html"></section>
+            <section data-external="content/around-geoext.html"></section>
             <section data-external="content/examples.html"></section>
-            <section data-external="content/summary.html"></section>
+            <section data-external="content/outlook.html"></section>
         </div>
     </div>
     <script src="js/reveal.js"></script>
