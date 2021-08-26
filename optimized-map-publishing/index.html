@@ -1,560 +1,554 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    />
 
-    <title>Optimized publishing of map and dataservices with GeoServer, GeoStyler and MapProxy</title>
-    <meta name="author" content="Till Adams, Marc Jansen" />
-    <meta name="author" content="terrestris GmbH &amp; Co. KG" />
-    <meta
-      name="description"
-      content="Optimized publishing of map and dataservices with GeoServer, GeoStyler and MapProxy | Talk on FOSS4G 2021, Buenos Aires"
-    />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-    <!--[if lt IE 9]>
+  <title>Optimized publishing of map and dataservices with GeoServer, GeoStyler and MapProxy</title>
+  <meta name="author" content="Till Adams, Marc Jansen" />
+  <meta name="author" content="terrestris GmbH &amp; Co. KG" />
+  <meta name="description"
+    content="Optimized publishing of map and dataservices with GeoServer, GeoStyler and MapProxy | Talk on FOSS4G 2021, Buenos Aires" />
+
+  <!--[if lt IE 9]>
       <script src="./shared/reveal.js-3.6.0/lib/js/html5shiv.js"></script>
     <![endif]-->
 
-    <link rel="stylesheet" href="./shared/reveal.js-3.6.0/css/reveal.css" />
-    <link
-      rel="stylesheet"
-      href="./shared/reveal.js-3.6.0/css/theme/beige.css"
-    />
+  <link rel="stylesheet" href="./shared/reveal.js-3.6.0/css/reveal.css" />
+  <link rel="stylesheet" href="./shared/reveal.js-3.6.0/css/theme/beige.css" />
 
-    <link
-      href="https://fonts.googleapis.com/css?family=Inconsolata|Lato|Merriweather"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./shared/css/customized.css" />
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata|Lato|Merriweather" rel="stylesheet" />
+  <link rel="stylesheet" href="./shared/css/customized.css" />
 
-    <!-- Theme used for syntax highlighting of code -->
-    <link
-      rel="stylesheet"
-      href="./shared/reveal.js-3.6.0/lib/css/zenburn.css"
-    />
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="./shared/reveal.js-3.6.0/lib/css/zenburn.css" />
 
-    <!-- Printing and PDF exports -->
-    <script>
-      var link = document.createElement('link');
-      link.rel = 'stylesheet';
-      link.type = 'text/css';
-      link.href = window.location.search.match(/print-pdf/gi)
-        ? './shared/reveal.js-3.6.0/css/print/pdf.css'
-        : './shared/reveal.js-3.6.0/css/print/paper.css';
-      document.getElementsByTagName('head')[0].appendChild(link);
-    </script>
-  </head>
-  <body>
-    <div class="reveal">
-      <!-- BEGIN OF SLIDES -->
-      <div class="slides">
-        <section  id="title">
-              <img src="./shared/img/map_publication/2000px-GeoServer_Logo.png" class="plain" width="400" /><br />
-              <img src="./shared/img/map_publication/geostyler-logo-full.svg" class="plain" width="400" /><br />
-              <img src="./shared/img/map_publication/640px-Logo_MapProxy.png" class="plain" width="400" /><br />
-	      <div style="position:absolute;top:450pt;left:20pt;z-index:2;"><img src="./shared/img/logo_foss4g.png" class="plain" width="120" /></div>
-          <p>&nbsp;</p>
-        </section>
-        <!--<section id="title"
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi)
+      ? './shared/reveal.js-3.6.0/css/print/pdf.css'
+      : './shared/reveal.js-3.6.0/css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+</head>
+
+<body>
+  <div class="reveal">
+    <!-- BEGIN OF SLIDES -->
+    <div class="slides">
+      <section id="title">
+        <img src="./shared/img/map_publication/2000px-GeoServer_Logo.png" class="plain" width="400" /><br />
+        <img src="./shared/img/map_publication/geostyler-logo-full.svg" class="plain" width="400" /><br />
+        <img src="./shared/img/map_publication/640px-Logo_MapProxy.png" class="plain" width="400" /><br />
+        <div style="position:absolute;top:450pt;left:20pt;z-index:2;"><img src="./shared/img/logo_foss4g.png"
+            class="plain" width="120" /></div>
+        <p>&nbsp;</p>
+      </section>
+      <!--<section id="title"
           data-background-image="./shared/img/map_publication/bg_publishing.png"
           data-background-size="auto 80%"
         > -->
-	  <section id="title">
-          <h2>Optimized publishing of map and dataservices</h2>
-          <h3> with GeoServer, GeoStyler and MapProxy</h3>
-          <br />
-          <p>
-            <small>Till Adams, Marc Jansen, terrestris GmbH & Co. KG</small>
-          </p>
-          <hr />
-          <p>
-            <small>Talk on FOSS4G 2021, Buenos Aires 2021-09-30, 08:30–09:00, Buenos Aires </small>
-          </p>
-	      <div style="position:absolute;top:450pt;left:20pt;z-index:2;"><img src="./shared/img/logo_foss4g.png" class="plain" width="120" /></div>
-        </section>
+      <section id="title">
+        <h2>Optimized publishing of map and dataservices</h2>
+        <h3> with GeoServer, GeoStyler and MapProxy</h3>
+        <br />
+        <p>
+          <small>Till Adams, Marc Jansen, terrestris GmbH & Co. KG</small>
+        </p>
+        <hr />
+        <p>
+          <small>FOSS4G 2021, Buenos Aires 2021-09-30, 08:30–09:00, Buenos Aires </small>
+        </p>
+        <div style="position:absolute;top:450pt;left:20pt;z-index:2;"><img src="./shared/img/logo_foss4g.png"
+            class="plain" width="120" /></div>
+      </section>
 
-        <section id="toc">
-          <h2>Agenda - Which road do we take?</h2>
-	   <div style="position:absolute;top:300pt;left:500pt;z-index:2;"><img src="./shared/img/map_publication/gs_portland_san_francisco_irvine_rome.png" class="plain" width="450" /> 
-	   </div>
-          <ul>
-            <li class="fragment">About ...
-              <ul>
-                <li>... the Authors and Presenters</li>
-                <li>... this Talk</li>
-              </ul>	    
-	    </li class="fragment">
-            <li class="fragment">Components</li>
-            <li class="fragment">Optimazation
-              <ul>
-                <li>Style</li>
-                <li>Performance</li>
-              </ul>	  
-	    </li>
-            <li class="fragment">Summary & Example</li>
-          </ul>
-	      <div style="position:absolute;top:450pt;left:20pt;z-index:2;"><img src="./shared/img/logo_foss4g.png" class="plain" width="120" /></div>
-        </section>
-	
-       <section id="toc">
-	           <h2>About ... the Authors and Presenters</h2>
- <!--	   <div style="position:absolute;top:300pt;left:500pt;z-index:2;">
+      <section id="toc">
+        <h2>Agenda - Which road do we take?</h2>
+        <div style="position:absolute;top:300pt;left:500pt;z-index:2;"><img
+            src="./shared/img/map_publication/gs_portland_san_francisco_irvine_rome.png" class="plain" width="450" />
+        </div>
+        <ul>
+          <li class="fragment">About ...
+            <ul>
+              <li>... the authors and presenters</li>
+              <li>... this talk</li>
+            </ul>
+          </li class="fragment">
+          <li class="fragment">Components</li>
+          <li class="fragment">Optimization
+            <ul>
+              <li>Style</li>
+              <li>Performance</li>
+            </ul>
+          </li>
+          <li class="fragment">Summary & Example</li>
+        </ul>
+        <div style="position:absolute;top:450pt;left:20pt;z-index:2;"><img src="./shared/img/logo_foss4g.png"
+            class="plain" width="120" /></div>
+      </section>
+
+      <section id="toc">
+        <h2>About ... the authors and presenters</h2>
+        <!--	   <div style="position:absolute;top:300pt;left:500pt;z-index:2;">
   <img src="./shared/img/map_publication/gs_portland_san_francisco_irvine_rome.png" class="plain" width="450" />
 	   </div> -->
-	</section>   
+      </section>
 
-        <section id="about-author-michael-holthausen">
-          <h2>Till Adams</h2>
-	   <div style="position:absolute;top:300pt;left:100pt;z-index:2;"><img src="./shared/img/ta_2.png" class="plain" width="650" /> 
-	   </div>
-          <div class="split-info">
-            <div class="part" style="width: 35%">
-		<small>
-		<li>
-                <a class="email" href="mailto:adams@terrestris.de"
-                  >adams@terrestris.de</a>
-		</li>
-		<li>	
-                <a class="twitter" href="https://twitter.com/t_adams"
-                  >@t_adams</a>
-		</li>
-		</small>
-		<br />
-            </div>
-            <div class="part" style="width: 60%">
-              <div class="enumeration">
-                <ul>
-                  <li>Shareholder terrestris</li>
-                  <li>Chair of global FOSS4G 2016 in Bonn</li>
-                  <li>OSGeo Board member</li>
-                  <li>Consultant & agile Coach</li>
-  	       </ul>
-              </div>
+      <section id="about-author-till-adams">
+        <h2>Till Adams</h2>
+        <div style="position:absolute;top:300pt;left:100pt;z-index:2;"><img src="./shared/img/ta_2.png" class="plain"
+            width="650" />
+        </div>
+        <div class="split-info">
+          <div class="part" style="width: 35%">
+            <small>
+              <li>
+                <a class="email" href="mailto:adams@terrestris.de">adams@terrestris.de</a>
+              </li>
+              <li>
+                <a class="twitter" href="https://twitter.com/t_adams">@t_adams</a>
+              </li>
+            </small>
+            <br />
+          </div>
+          <div class="part" style="width: 60%">
+            <div class="enumeration">
+              <ul>
+                <li>Shareholder terrestris</li>
+                <li>Chair of global FOSS4G 2016 in Bonn</li>
+                <li>OSGeo Board member</li>
+                <li>Consultant & agile Coach</li>
+              </ul>
             </div>
           </div>
-          <div style="clear: both"></div>
-        </section>
-	
-        <section id="about-author-michael-holthausen">
-          <h2>Marc Jansen</h2>
-	   <div style="position:absolute;top:250pt;left:-100pt;z-index:2;"><img src="./shared/img/afi.png" class="plain" width="480" height="220"/> 
-	   </div>	
-          <div class="split-info">
-            <div class="part" style="width: 35%">
-		<small>
-		<li>
-                <a class="email" href="mailto:jansen@terrestris.de"
-                  >jansen@terrestris.de</a>
-		</li>
-		<li>	
-                <a class="git" href="https://twitter.com/t_adams"
-                  >@marcjansen</a>
-		</li>
-		<li>	
-                <a class="twitter" href="https://twitter.com/t_adams"
-                  >@selectoid</a>
-		</li>
-		</small>
-		<br />
-            </div>
-            <div class="part" style="width: 60%">
-              <div class="enumeration">
-                <ul>
-                  <li>General Manager terrestris & mundialis</li>
-                  <li>OSGeo Charter member</li>
-                  <li>PSC / Core developer of </li>
-		  <ul>
-		  <li>OpenLayers & GeoExt</li>
-		  <li>Contributor to GeoStyler, react-geo & other</li></li>
-		  </ul>
-		  <li>...Developer / technical background</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div style="clear: both"></div>
-        </section>
+        </div>
+        <div style="clear: both"></div>
+      </section>
 
-        <section id="about-company-terrestris">
-          <h2>terrestris</h2>
-          <div class="split-info">
-            <div class="part" style="width: 35%">
-              <img
-                src="./shared/img/terrestris_team.png"
-                class="plain"
-                width="300"
-              />
-              <br /><small>
-                <a class="email" href="mailto:info@terrestris.de"
-                  >info@terrestris.de</a
-                ><br />
-                <a class="github" href="https://github.com/terrestris/"
-                  >@terrestris</a
-                ><br />
-                <a class="twitter" href="https://twitter.com/terrestrisde/"
-                  >@terrestrisde</a
-                >
-              </small>
-            </div>
-            <div class="part" style="width: 60%">
-              <div class="enumeration">
+      <section id="about-author-marc-jansen">
+        <h2>Marc Jansen</h2>
+        <div style="position:absolute;top:250pt;left:-100pt;z-index:2;"><img src="./shared/img/afi.png" class="plain"
+            width="480" height="220" />
+        </div>
+        <div class="split-info">
+          <div class="part" style="width: 35%">
+            <small>
+              <li>
+                <a class="email" href="mailto:jansen@terrestris.de">jansen@terrestris.de</a>
+              </li>
+              <li>
+                <a class="git" href="https://twitter.com/t_adams">@marcjansen</a>
+              </li>
+              <li>
+                <a class="twitter" href="https://twitter.com/t_adams">@selectoid</a>
+              </li>
+            </small>
+            <br />
+          </div>
+          <div class="part" style="width: 60%">
+            <div class="enumeration">
+              <ul>
+                <li>General Manager terrestris & mundialis</li>
+                <li>OSGeo charter member</li>
+                <li>PSC / Core developer of </li>
                 <ul>
-                  <li>
-                    <a href="https://www.terrestris.de/">www.terrestris.de</a>
+                  <li>OpenLayers & GeoExt</li>
+                  <li>Contributor to GeoStyler, react-geo & other</li>
                   </li>
-                  <li>OpenSource GIS service provider, located in Bonn, Germany</li>
-                  <li>Planning, Development  &amp; Projects</li>
-                  <li>Consulting, Support &amp; Trainees</li>
-                  <li>providing popular free <a href="https://ows.terrestris.de/">OSM-WMS</a> (worldwide)</li>
-		</ul>
-              </div>
+                </ul>
+                <li>...Developer / technical background</li>
+              </ul>
             </div>
           </div>
-          <div style="clear: both"></div>
-	<div style="position:absolute;top:350pt;left:20pt;z-index:2;"><img src="./shared/img/terrestris.jpg" class="plain" width="120" /></div>
-        </section>
+        </div>
+        <div style="clear: both"></div>
+      </section>
 
-        <section>
-          <h1>... about this Talk</h1>
-        </section>
+      <section id="about-company-terrestris">
+        <h2>terrestris</h2>
+        <div class="split-info">
+          <div class="part" style="width: 35%">
+            <img src="./shared/img/terrestris_team.png" class="plain" width="300" />
+            <br /><small>
+              <a class="email" href="mailto:info@terrestris.de">info@terrestris.de</a><br />
+              <a class="github" href="https://github.com/terrestris/">@terrestris</a><br />
+              <a class="twitter" href="https://twitter.com/terrestrisde/">@terrestrisde</a>
+            </small>
+          </div>
+          <div class="part" style="width: 60%">
+            <div class="enumeration">
+              <ul>
+                <li>
+                  <a href="https://www.terrestris.de/">www.terrestris.de</a>
+                </li>
+                <li>OpenSource GIS service provider, located in Bonn, Germany</li>
+                <li>Planning, Development &amp; Projects</li>
+                <li>Consulting, Support &amp; Trainees</li>
+                <li>providing popular free <a href="https://ows.terrestris.de/">OSM-WMS</a> (worldwide)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div style="clear: both"></div>
+        <div style="position:absolute;top:350pt;left:20pt;z-index:2;"><img src="./shared/img/terrestris.jpg"
+            class="plain" width="120" /></div>
+      </section>
 
-        <section>
-          <h2>Why this Talk?</h2>
-        </section>
+      <section>
+        <h1>... about this talk</h1>
+      </section>
 
-        <section>
-          <h2>Why this Talk?</h2>
-          <b> This talk is for users, not so much for developers </b>  
-           <div class="enumeration">
-           <ul>
+      <section>
+        <h2>Why this talk?</h2>
+      </section>
+
+      <section>
+        <h2>Why this talk?</h2>
+        <b> This talk is for users, not so much for developers </b>
+        <div class="enumeration">
+          <ul>
             <li class="fragment">Thank god: Creation of a simple WMS with Open Source tools is easy today, but ... 🙏
-             <ul>
-                <li >Styling is <em>still</em> a Topic</li>
+              <ul>
+                <li>Styling is <em>still</em> a Topic</li>
                 <li>Performance is <b><em>always</em></b> a Topic</li>
-              </ul></li>
+              </ul>
+            </li>
             <li class="fragment">Setting up and well designed and fast WMS services arestill a Topic</li>
           </ul>
         </div>
-	</section>
+      </section>
 
-        <section>
-	  <h2>Is this the one and only solution?</h2>
-          <b> No! Of course not!</b>  
-           <div class="enumeration">
-           <ul>
+      <section>
+        <h2>Is this the one and only solution?</h2>
+        <b> No! Of course not!</b>
+        <div class="enumeration">
+          <ul>
             <li class="fragment">There are many FOSS ways of achieving similar results</li>
-            <li class="fragment">This talk wants to share our experience and provide an insight into how we often solve problems</li>
+            <li class="fragment">This talk wants to share our experience and provide an insight into how we often solve
+              problems</li>
           </ul>
-         </div>
-	<div style="position:absolute;top:375pt;left:460pt;z-index:2;"><img src="./shared/img/map_publication/rome.jpg" class="plain" width="200" />
-	<figcaption style="font-size:8px">http://densiaamelia.blogspot.com/2014/01/there-are-many-ways-to-go-to-rome-there.html</figcaption>
-	</div>
-	</section>
-        </section>
+        </div>
+        <div style="position:absolute;top:375pt;left:460pt;z-index:2;"><img src="./shared/img/map_publication/rome.jpg"
+            class="plain" width="200" />
+          <figcaption style="font-size:8px">
+            http://densiaamelia.blogspot.com/2014/01/there-are-many-ways-to-go-to-rome-there.html</figcaption>
+        </div>
+      </section>
+      </section>
 
-        <section>
-	  <h2>Scan the title for buzzw … components</h2>
-          <b>Optimized publishing of map and dataservices with </b><br />
-	   <div class="enumeration">
-           <ul style="list-style: none;">
-            <li class="fragment"><img src="./shared/img/map_publication/2000px-GeoServer_Logo.png" class="plain" width="300" /></li>
-            <li class="fragment"><img src="./shared/img/map_publication/geostyler-logo-full.svg" class="plain" width="300" /></li>
-            <li class="fragment"><img src="./shared/img/map_publication/640px-Logo_MapProxy.png" class="plain" width="300" /></li> 
-	   </ul>
-	   </div>
-        </section>
+      <section>
+        <h2>Scan the title for buzzw … components</h2>
+        <b>Optimized publishing of map and dataservices with </b><br />
+        <div class="enumeration">
+          <ul style="list-style: none;">
+            <li class="fragment"><img src="./shared/img/map_publication/2000px-GeoServer_Logo.png" class="plain"
+                width="300" /></li>
+            <li class="fragment"><img src="./shared/img/map_publication/geostyler-logo-full.svg" class="plain"
+                width="300" /></li>
+            <li class="fragment"><img src="./shared/img/map_publication/640px-Logo_MapProxy.png" class="plain"
+                width="300" /></li>
+          </ul>
+        </div>
+      </section>
 
-        <section>
- 	  <h2>GeoServer</h2>
-          <b></b>	   <div class="enumeration">
-           <ul>
+      <section>
+        <h2>GeoServer</h2>
+        <b></b>
+        <div class="enumeration">
+          <ul>
             <li class="fragment">Java-based, OGC compliant Server for Geodata</li>
             <li class="fragment">Well documented and powerful API</li>
-            <li class="fragment">Widely used in GIS world</li> 
-	     <li class="fragment">Integrated in many WebGIS frameworks (e.g. SHOGun)</li>
-	   </ul>
-              <br /><small>
-                <a class="www" href="https://geoserver.org">geoserver.org</a><br />
-                <a class="github" href="https://github.com/geoserver/">geoserver</a>
-              </small>
-	   </div>
-        </section>
+            <li class="fragment">Widely used in GIS world</li>
+            <li class="fragment">Integrated in many WebGIS frameworks (e.g. SHOGun)</li>
+          </ul>
+          <br /><small>
+            <a class="www" href="https://geoserver.org">geoserver.org</a><br />
+            <a class="github" href="https://github.com/geoserver/">geoserver</a>
+          </small>
+        </div>
+      </section>
 
-        <section>
- 	  <h2>GeoServer</h2>
-          <b>Input Files</b>	   
-	  <div class="enumeration">
-           <ul>
+      <section>
+        <h2>GeoServer</h2>
+        <b>Input Files</b>
+        <div class="enumeration">
+          <ul>
             <li class="fragment">Vector files (e.g. Shape)</li>
             <li class="fragment">RasterData (e.g. GeoTIFF)</li>
-            <li class="fragment">DataBase (eg. PostGIS)</li> 
-	     <li class="fragment">Other Servers (e.g. WMS, WFS)</li>
-	   </ul>
-	   </div>
-	</section>
-	   
-        <section>
- 	  <h2>GeoServer</h2>
-          <b>Output Services</b>	   
-	  <div class="enumeration">
-           <ul>
+            <li class="fragment">DataBase (e.g. PostGIS)</li>
+            <li class="fragment">Other Servers (e.g. WMS, WFS)</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>GeoServer</h2>
+        <b>Output Services</b>
+        <div class="enumeration">
+          <ul>
             <li class="fragment">WebMapService (WMS)</li>
             <ul>
-              <li class="fragment">Styling: StyledLayerDescriptor (SLD)</li></ul>
-            <li class="fragment">WebFeature Service (WFS)</li>
-            <li class="fragment">WebCoverageService (WCS)</li> 
-            <li class="fragment">WebProcessingService (WPS)</li>
-	   </ul>
-	   </div>
-	</section>
-
-        <section>
-          <b><s>Optimized</s> publishing of map and dataservices : </b>	
- 	  <h2>Okay, you‘re done</h2>
-	</section>
-
-        <section>
- 	  <h2>GeoServer – Styling Maps</h2>   
-	  <div class="enumeration">
-           <ul>
-            <li class="fragment">WebMapService (WMS)</li>
-            <ul>
-              <li class="fragment">Styling: StyledLayerDescriptor (SLD)</li></ul>
+              <li class="fragment">Styling: StyledLayerDescriptor (SLD)</li>
             </ul>
-	<img src="./shared/img/map_publication/styling_geoserver.png" class="plain" width="300" />
-        </section>
+            <li class="fragment">WebFeature Service (WFS)</li>
+            <li class="fragment">WebCoverageService (WCS)</li>
+            <li class="fragment">WebProcessingService (WPS)</li>
+          </ul>
+        </div>
+      </section>
 
-        <section>
- 	  <h2>GeoStyler</h2>
-          <b></b>	   
-	  <div class="enumeration">
-           <ul>
+      <section>
+        <b><s>Optimized</s> publishing of map and dataservices : </b>
+        <h2>Okay, you‘re done</h2>
+      </section>
+
+      <section>
+        <h2>GeoServer – Styling Maps</h2>
+        <div class="enumeration">
+          <ul>
+            <li class="fragment">WebMapService (WMS)</li>
+            <ul>
+              <li class="fragment">Styling: StyledLayerDescriptor (SLD)</li>
+            </ul>
+          </ul>
+          <img src="./shared/img/map_publication/styling_geoserver.png" class="plain" width="300" />
+      </section>
+
+      <section>
+        <h2>GeoStyler</h2>
+        <b></b>
+        <div class="enumeration">
+          <ul>
             <li class="fragment">Ready-to-use map styling library</li>
             <li class="fragment">Read & write of various style formats</li>
-            <li class="fragment">Read of various data formats</li> 
-	    <li class="fragment">Development & integration of own parsers</li>
-	   <li class="fragment">Support for raster data</li>
-	   </ul>
-              <br /><small>
-                <a class="www" href="https://geostyler.org">geostyler.org</a><br />
-                <a class="github" href="https://github.com/geostyler/">geostyler</a>
-              </small>
-	   </div>
-        </section>
+            <li class="fragment">Read of various data formats</li>
+            <li class="fragment">Development & integration of own parsers</li>
+            <li class="fragment">Support for raster data</li>
+          </ul>
+          <br /><small>
+            <a class="www" href="https://geostyler.org">geostyler.org</a><br />
+            <a class="github" href="https://github.com/geostyler/">geostyler</a>
+          </small>
+        </div>
+      </section>
 
-        <section>
- 	  <h2>GeoStyler</h2>
-          <b>Input Features</b>	   
-	  <div class="enumeration">
-           <ul>
+      <section>
+        <h2>GeoStyler</h2>
+        <b>Input Features</b>
+        <div class="enumeration">
+          <ul>
             <li class="fragment">Filters & Classifications</li>
             <li class="fragment">Scale Ranges</li>
-            <li class="fragment">Calculation of overlaps</li> 
-	     <li class="fragment">StandAlone (UI) / Integrated</li>
-	   </ul>
-	   </div>
-	</section>
-	   
-        <section>
- 	  <h2>GeoStyler</h2>
-          <b>Output Styles</b>	   
-	  <div class="enumeration">
-           <ul>
+            <li class="fragment">Calculation of overlaps</li>
+            <li class="fragment">StandAlone (UI) / Integrated</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>GeoStyler</h2>
+        <b>Output Styles</b>
+        <div class="enumeration">
+          <ul>
             <li class="fragment">Styled Layer Descriptor (SLD)</li>
             <li class="fragment">QGIS Style</li>
-            <li class="fragment">OpenLayers Style</li> 
+            <li class="fragment">OpenLayers Style</li>
             <li class="fragment">MapBox Style</li>
             <li class="fragment">[...] Style</li>
-	</ul>
-	   </div>
-	</section>
- 
-         <section>
- 	  <h2>GeoStyler</h2>
-          <b>User Interface Elements (UI)</b><br>	   
-	<img src="./shared/img/map_publication/geostyler_ui.png" class="plain" width=900" />
-	</section>
+          </ul>
+        </div>
+      </section>
 
-         <section>
- 	  <h2>GeoStyler</h2>
-          <b>Standalone</b><br>	   
-	<img src="./shared/img/map_publication/geostyler_standalone.png" class="plain" width=900" />
-	</section>
+      <section>
+        <h2>GeoStyler</h2>
+        <b>User Interface Elements (UI)</b><br>
+        <img src="./shared/img/map_publication/geostyler_ui.png" class="plain" width=900" />
+      </section>
 
-         <section>
- 	  <h2>GeoStyler</h2>
-          <b>GeoServer Plug In</b><br>	   
-	<img src="./shared/img/map_publication/geostyler_geoserver.png" class="plain" width=900" />
-	</section>
+      <section>
+        <h2>GeoStyler</h2>
+        <b>Standalone</b><br>
+        <img src="./shared/img/map_publication/geostyler_standalone.png" class="plain" width=900" />
+      </section>
 
-        <section>
-          <b><s>Optimized</s> publishing of map and dataservices : </b>	
- 	  <h2>But now, you‘re done</h2>
-	</section>
+      <section>
+        <h2>GeoStyler</h2>
+        <b>GeoServer Plug In</b><br>
+        <img src="./shared/img/map_publication/geostyler_geoserver.png" class="plain" width=900" />
+      </section>
 
-        <section>
- 	  <h2>Caching Maps</h2>
-          <b>Clever if ...</b>
-	   <div style="position:absolute;top:150pt;left:550pt;z-index:2;"><img src="./shared/img/map_publication/caching.png" class="plain" width="520" /> 
-	   </div>
-	  <div class="enumeration">
-           <ul>
+      <section>
+        <b><s>Optimized</s> publishing of map and dataservices : </b>
+        <h2>But now, you‘re done</h2>
+      </section>
+
+      <section>
+        <h2>Caching Maps</h2>
+        <b>Clever if ...</b>
+        <div style="position:absolute;top:150pt;left:550pt;z-index:2;"><img
+            src="./shared/img/map_publication/caching.png" class="plain" width="520" />
+        </div>
+        <div class="enumeration">
+          <ul>
             <li class="fragment">Data doesn‘t change too often</li>
             <li class="fragment">Many requests expected</li>
-            <li class="fragment">Many layers (e.g. grouped layers</li> 
-	    <li class="fragment">Performance problems</li>
-	   <li class="fragment">Restricted hardware capabilities of (WMS) Server</li>
-	   </ul>
-	   </div>
-        </section>
+            <li class="fragment">Many layers (e.g. grouped layers</li>
+            <li class="fragment">Performance problems</li>
+            <li class="fragment">Restricted hardware capabilities of (WMS) Server</li>
+          </ul>
+        </div>
+      </section>
 
-        <section>
- 	  <h2>GeoWebCache</h2> 
-	  <b>it's integrated in GeoServer</b>
-	  <div class="enumeration">
-           <ul>
+      <section>
+        <h2>GeoWebCache</h2>
+        <b>it's integrated in GeoServer</b>
+        <div class="enumeration">
+          <ul>
             <li class="fragment">Java-based tiling server (caching application)</li>
             <ul>
               <li class="fragment">Sources: WMS</li>
-	      <li class="fragment">Interfaces: WMS-C, WMTS, TMS, Google Maps KML, Virtual Earth</li>
-	     </ul>
+              <li class="fragment">Interfaces: WMS-C, WMTS, TMS, Google Maps KML, Virtual Earth</li>
+            </ul>
             <li class="fragment">Well documented and powerful API</li>
             <li class="fragment">Integrated in GeoServer</li>
-            </ul>
-              <br /><small>
-                <a class="www" href="https://geowebache.org">     geowebcache.org</a><br />
-                <a class="github" href="https://github.com/geowebache/">geowebache</a>
-              </small>
-	</section>
+          </ul>
+          <br /><small>
+            <a class="www" href="https://geowebache.org"> geowebcache.org</a><br />
+            <a class="github" href="https://github.com/geowebache/">geowebache</a>
+          </small>
+      </section>
 
-        <section>
- 	  <h2>MapProxy</h2> 
-	  <b>Standalone</b>
-	  <div class="enumeration">
-           <ul>
+      <section>
+        <h2>MapProxy</h2>
+        <b>Standalone</b>
+        <div class="enumeration">
+          <ul>
             <li class="fragment">Proxy for geospatial data (Caching engine)</li>
             <ul>
               <li class="fragment">Sources: WMS, WMTS, Mapserver, Mapnik, Tilecache
-GoogleMaps, BingMaps, ArcGIS REST</li>
-	      <li class="fragment">Interfaces: WMS-C, TMS, WMTS, KML SuperOverlays</li>
-	     </ul>
-            <li class="fragment">Well documented and powerful API</li>
+                GoogleMaps, BingMaps, ArcGIS REST</li>
+              <li class="fragment">Interfaces: WMS-C, TMS, WMTS, KML SuperOverlays</li>
             </ul>
-              <br /><small>
-                <a class="www" href="https://mapproxy.org">mapproxy.org</a><br />
-                <a class="github" href="https://github.com/mapproxy/">mapproxy</a>
-              </small>
-	</section>
-	
-         <section>
- 	  <h2>MapProxy</h2>
-          <b></b><br>	   
-	<img src="./shared/img/map_publication/mapproxy_architecture.png" class="plain" width=900" />
-	</section>
-	
-       <section>
- 	  <h2>MapProxy</h2> 
-	  <b>cool functions of MapProxy</b>
-	  <div class="enumeration">
-           <ul>
+            <li class="fragment">Well documented and powerful API</li>
+          </ul>
+          <br /><small>
+            <a class="www" href="https://mapproxy.org">mapproxy.org</a><br />
+            <a class="github" href="https://github.com/mapproxy/">mapproxy</a>
+          </small>
+      </section>
+
+      <section>
+        <h2>MapProxy</h2>
+        <b></b><br>
+        <img src="./shared/img/map_publication/mapproxy_architecture.png" class="plain" width=900" />
+      </section>
+
+      <section>
+        <h2>MapProxy</h2>
+        <b>cool functions of MapProxy</b>
+        <div class="enumeration">
+          <ul>
             <li class="fragment">MapProxy is capable to </li>
             <ul>
               <li class="fragment">Auto-generate grey version of cache </li>
-	      <li class="fragment">Re-project tiles (= one cache for several EPSG‘s)</li>
+              <li class="fragment">Re-project tiles (= one cache for several EPSG‘s)</li>
               <li class="fragment">Interpolate tiles between cached zoom levels </li>
-	      <li class="fragment">Read a lot of input data</li>
+              <li class="fragment">Read a lot of input data</li>
               <li class="fragment">Optimized storage</li>
-	      <li class="fragment">Security for layers or regions</li>
-	</ul>
+              <li class="fragment">Security for layers or regions</li>
             </ul>
-	</section>
-	
-        <section>
- 	  <h2>GeoWebCache - Mapproxy</h2> 
-	  <b>the attempt of a comparison I</b>
-	  <div class="enumeration">
-           <ul>
-            <li class="fragment">GeoWebCache is built-in GeoServer & Standalone</li><br>
-	    <li class="fragment">GeoWebCache: one cache per EPSG-code – MapProxy: same cache for all, if wanted</li>
-            </ul>
-	</section>
+          </ul>
+      </section>
 
-        <section>
- 	  <h2>GeoWebCache - Mapproxy</h2> 
-	  <b>the attempt of a comparison II</b>
-	  <div class="enumeration">
-           <ul>
-	    <li class="fragment">MapProxy is able to replace the service behind by cache-interpolation</li>
+      <section>
+        <h2>GeoWebCache - Mapproxy</h2>
+        <b>the attempt of a comparison I</b>
+        <div class="enumeration">
+          <ul>
+            <li class="fragment">GeoWebCache is built-in GeoServer & Standalone</li><br>
+            <li class="fragment">GeoWebCache: one cache per EPSG-code – MapProxy: same cache for all, if wanted</li>
+          </ul>
+      </section>
+
+      <section>
+        <h2>GeoWebCache - Mapproxy</h2>
+        <b>the attempt of a comparison II</b>
+        <div class="enumeration">
+          <ul>
+            <li class="fragment">MapProxy is able to replace the service behind by cache-interpolation</li>
             <ul>
               <li class="fragment">MapProxy interpolates tiles if request is between zoom levels</li>
-	      <li class="fragment">GeoWebCache sends request to GeoServer</li>
-	     </ul><br>
+              <li class="fragment">GeoWebCache sends request to GeoServer</li>
+            </ul><br>
             <li class="fragment">GeoWebCache WMS needs parameter “tiled=true“ on WMS-request</li>
-            </ul>
-	</section>
+          </ul>
+      </section>
 
-         <section>
- 	  <h2>One example</h2>
-          <b>Free to use world-wide OSM WMS: ows.terrestris.de</b><br>	   
-	<img src="./shared/img/map_publication/osmwms.png" class="plain" width=900" />
-	</section>
+      <section>
+        <h2>One example</h2>
+        <b>Free to use world-wide OSM WMS: ows.terrestris.de</b><br>
+        <img src="./shared/img/map_publication/osmwms.png" class="plain" width=900" />
+      </section>
 
-         <section>
- 	  <h2>Architecture</h2>
-          <b>Optimized publishing of map and dataservices</b><br>	   
-	<img src="./shared/img/map_publication/architecture.png" class="plain" width=900" />
-	</section>
+      <section>
+        <h2>Architecture</h2>
+        <b>Optimized publishing of map and dataservices</b><br>
+        <img src="./shared/img/map_publication/architecture.png" class="plain" width=900" />
+      </section>
 
-        <section>
-          <b>Optimized publishing of map and dataservices : </b>	
- 	  <h2>And now, you‘re done!</h2>
-	</section>
-	
-        <section>
- 	  <h2>Summary</h2> 
-	  <b>It's cool, it's open!</b>
-	  <div class="enumeration">
-           <ul>
+      <section>
+        <b>Optimized publishing of map and dataservices : </b>
+        <h2>And now, you‘re done!</h2>
+      </section>
+
+      <section>
+        <h2>Summary</h2>
+        <b>It's cool, it's open!</b>
+        <div class="enumeration">
+          <ul>
             <li class="fragment">Open Source is combinable!</li>
-	    <li class="fragment">There is often more than one component to reach your goal</li>
-	    <li class="fragment">The presented architecture has already proven its suitability for setting up good-looking, fast and robust MapServices, as the example OpenStreetMap WMS shows</li>
-            </ul>
-	</section>
-	
-	</div>
-      <!-- END OF SLIDES -->
+            <li class="fragment">There is often more than one component to reach your goal</li>
+            <li class="fragment">The presented architecture has already proven its suitability for setting up
+              good-looking, fast and robust MapServices, as the example OpenStreetMap WMS shows</li>
+          </ul>
+      </section>
+
     </div>
+    <!-- END OF SLIDES -->
+  </div>
 
-    <script src="./shared/reveal.js-3.6.0/lib/js/head.min.js"></script>
-    <script src="./shared/reveal.js-3.6.0/js/reveal.js"></script>
+  <script src="./shared/reveal.js-3.6.0/lib/js/head.min.js"></script>
+  <script src="./shared/reveal.js-3.6.0/js/reveal.js"></script>
 
-    <script>
-      // More info about config & dependencies:
-      // - https://github.com/hakimel/reveal.js-3.6.0#configuration
-      // - https://github.com/hakimel/reveal.js-3.6.0#dependencies
-      Reveal.initialize({
-        // Push each slide change to the browser history
-        history: true,
-        dependencies: [
-          { src: './shared/reveal.js-3.6.0/plugin/markdown/marked.js' },
-          { src: './shared/reveal.js-3.6.0/plugin/markdown/markdown.js' },
-          {
-            src: './shared/reveal.js-3.6.0/plugin/notes/notes.js',
-            async: true
-          },
-          {
-            src: './shared/reveal.js-3.6.0/plugin/highlight/highlight.js',
-            async: true,
-            callback: function () {
-              hljs.initHighlightingOnLoad();
-            }
+  <script>
+    // More info about config & dependencies:
+    // - https://github.com/hakimel/reveal.js-3.6.0#configuration
+    // - https://github.com/hakimel/reveal.js-3.6.0#dependencies
+    Reveal.initialize({
+      // Push each slide change to the browser history
+      history: true,
+      dependencies: [
+        { src: './shared/reveal.js-3.6.0/plugin/markdown/marked.js' },
+        { src: './shared/reveal.js-3.6.0/plugin/markdown/markdown.js' },
+        {
+          src: './shared/reveal.js-3.6.0/plugin/notes/notes.js',
+          async: true
+        },
+        {
+          src: './shared/reveal.js-3.6.0/plugin/highlight/highlight.js',
+          async: true,
+          callback: function () {
+            hljs.initHighlightingOnLoad();
           }
-        ]
-      });
-    </script>
-  </body>
+        }
+      ]
+    });
+  </script>
+</body>
+
 </html>
