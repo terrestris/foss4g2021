@@ -367,7 +367,7 @@
             <li>QGIS Style</li>
             <li>OpenLayers Style</li>
             <li>MapBox Style</li>
-            <li>Mapserver Mapfiles (=> talk by J. Teuscher)</li>
+            <li>Mapserver Mapfiles (=> talk by B. Teuscher)</li>
             <li>… others planned</li>
           </ul>
         </div>
@@ -404,11 +404,11 @@
         </div>
         <div class="enumeration">
           <ul>
-            <li class="fragment">Data doesn‘t change too often</li>
-            <li class="fragment">Many requests expected</li>
-            <li class="fragment">Many layers (e.g. grouped layers</li>
-            <li class="fragment">Performance problems</li>
-            <li class="fragment">Restricted hardware capabilities of (WMS) Server</li>
+            <li>Data doesn‘t change too often</li>
+            <li>Many requests expected</li>
+            <li>Many layers (e.g. grouped layers</li>
+            <li>Performance problems</li>
+            <li>Restricted hardware capabilities of (WMS) Server</li>
           </ul>
         </div>
       </section>
@@ -418,13 +418,13 @@
         <b>it's integrated in GeoServer</b>
         <div class="enumeration">
           <ul>
-            <li class="fragment">Java-based tiling server (caching application)</li>
+            <li>Java-based tiling server (caching application)</li>
             <ul>
-              <li class="fragment">Sources: WMS</li>
-              <li class="fragment">Interfaces: WMS-C, WMTS, TMS, Google Maps KML, Virtual Earth</li>
+              <li>Sources: WMS</li>
+              <li>Interfaces: WMS-C, WMTS, TMS, Google Maps KML, Virtual Earth</li>
             </ul>
-            <li class="fragment">Well documented and powerful API</li>
-            <li class="fragment">Integrated in GeoServer</li>
+            <li>Well documented and powerful API</li>
+            <li>Integrated in GeoServer</li>
           </ul>
           <br /><small>
             <a class="www" href="https://geowebache.org"> geowebcache.org</a><br />
@@ -437,13 +437,13 @@
         <b>Standalone</b>
         <div class="enumeration">
           <ul>
-            <li class="fragment">Proxy for geospatial data (Caching engine)</li>
+            <li>Proxy for geospatial data (Caching engine)</li>
             <ul>
-              <li class="fragment">Sources: WMS, WMTS, Mapserver, Mapnik, Tilecache
+              <li>Sources: WMS, WMTS, Mapserver, Mapnik, Tilecache
                 GoogleMaps, BingMaps, ArcGIS REST</li>
-              <li class="fragment">Interfaces: WMS-C, TMS, WMTS, KML SuperOverlays</li>
+              <li>Interfaces: WMS-C, TMS, WMTS, KML SuperOverlays</li>
             </ul>
-            <li class="fragment">Well documented and powerful API</li>
+            <li>Well documented and powerful API</li>
           </ul>
           <br /><small>
             <a class="www" href="https://mapproxy.org">mapproxy.org</a><br />
@@ -462,14 +462,14 @@
         <b>cool functions of MapProxy</b>
         <div class="enumeration">
           <ul>
-            <li class="fragment">MapProxy is capable to </li>
+            <li>MapProxy is capable to </li>
             <ul>
-              <li class="fragment">Auto-generate grey version of cache </li>
-              <li class="fragment">Re-project tiles (= one cache for several EPSG‘s)</li>
-              <li class="fragment">Interpolate tiles between cached zoom levels </li>
-              <li class="fragment">Read a lot of input data</li>
-              <li class="fragment">Optimized storage</li>
-              <li class="fragment">Security for layers or regions</li>
+              <li>Auto-generate grey version of cache </li>
+              <li>Re-project tiles (= one cache for several EPSG‘s)</li>
+              <li>Interpolate tiles between cached zoom levels </li>
+              <li>Read a lot of input data</li>
+              <li>Optimized storage</li>
+              <li>Security for layers or regions</li>
             </ul>
           </ul>
       </section>
@@ -479,8 +479,8 @@
         <b>the attempt of a comparison I</b>
         <div class="enumeration">
           <ul>
-            <li class="fragment">GeoWebCache is built-in GeoServer & Standalone</li><br>
-            <li class="fragment">GeoWebCache: one cache per EPSG-code – MapProxy: same cache for all, if wanted</li>
+            <li>GeoWebCache is built-in GeoServer & Standalone</li><br>
+            <li>GeoWebCache: one cache per EPSG-code – MapProxy: same cache for all, if wanted</li>
           </ul>
       </section>
 
@@ -489,12 +489,12 @@
         <b>the attempt of a comparison II</b>
         <div class="enumeration">
           <ul>
-            <li class="fragment">MapProxy is able to replace the service behind by cache-interpolation</li>
+            <li>MapProxy is able to replace the service behind by cache-interpolation</li>
             <ul>
-              <li class="fragment">MapProxy interpolates tiles if request is between zoom levels</li>
-              <li class="fragment">GeoWebCache sends request to GeoServer</li>
+              <li>MapProxy interpolates tiles if request is between zoom levels</li>
+              <li>GeoWebCache sends request to GeoServer</li>
             </ul><br>
-            <li class="fragment">GeoWebCache WMS needs parameter “tiled=true“ on WMS-request</li>
+            <li>Oversimplified: GeoWebCache WMS needs parameter “tiled=true“ on WMS-request</li>
           </ul>
       </section>
 
